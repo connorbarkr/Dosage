@@ -1,13 +1,11 @@
 package ai.getdosage.android.dosage;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v4.app.Fragment;
 
-public class DosageActivity extends AppCompatActivity {
+public class DosageActivity extends SingleFragmentActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dosage);
+    public Fragment createFragment() {
+        return new DosageFragment().newInstance();
     }
+
 }
