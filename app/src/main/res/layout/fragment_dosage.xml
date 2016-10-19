@@ -9,6 +9,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Under Construction"/>
+        android:text="Under Construction"
+        android:textSize="40dp"
+        android:textColor="@color/construction"/>
 
 </RelativeLayout>
