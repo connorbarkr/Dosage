@@ -1,5 +1,6 @@
 package ai.getdosage.android.dosage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -51,13 +53,28 @@ public class DosageListFragment extends Fragment {
         mDoseRecyclerView.setAdapter(mAdapter);
     }
 
-    private class DoseHolder extends RecyclerView.ViewHolder {
+    private class DoseHolder extends RecyclerView.ViewHolder
+            implements View.OnClickListener {
+
         public TextView mTitleTextView;
+        private Dose mDose;
 
         public DoseHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
 
             mTitleTextView = (TextView) itemView;
+        }
+
+        public void bindDose(Dose dose) {
+            mDose = dose;
+            mTitleTextView.setText(mDose.getTitle());
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(getActivity(), DoseActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -78,7 +95,7 @@ public class DosageListFragment extends Fragment {
         @Override
         public void onBindViewHolder(DoseHolder holder, int position) {
             Dose dose = mDoses.get(position);
-            holder.mTitleTextView.setText(dose.getTitle());
+            holder.bindDose(dose);
         }
 
         @Override

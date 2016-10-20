@@ -24,6 +24,7 @@ public class DoseFragment extends android.support.v4.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mDose = new Dose();
     }
 
     @Override
@@ -38,8 +39,8 @@ public class DoseFragment extends android.support.v4.app.Fragment {
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                mDose.setTitle(charSequence.toString());
+            public void onTextChanged(CharSequence s, int i, int i1, int i2) {
+                mDose.setTitle(s.toString());
             }
 
             @Override
