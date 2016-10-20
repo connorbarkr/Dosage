@@ -9,10 +9,10 @@ import android.view.ViewGroup;
  * Created by Eskimopies on 19/10/2016.
  */
 
-public class DosageFragment extends android.support.v4.app.Fragment {
+public class DoseFragment extends android.support.v4.app.Fragment {
 
-    public static DosageFragment newInstance() {
-        return new DosageFragment();
+    public static DoseFragment newInstance() {
+        return new DoseFragment();
     }
 
     @Override
@@ -21,9 +21,8 @@ public class DosageFragment extends android.support.v4.app.Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_dosage, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_dose, container, false);
 
         return v;
     }
