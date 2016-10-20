@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 public class DosageListActivity extends SingleFragmentActivity {
 
     public Fragment createFragment() {
-        return new DoseFragment().newInstance();
+        return new DosageListFragment().newInstance();
     }
 
 }

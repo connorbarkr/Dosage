@@ -1,5 +1,7 @@
 package ai.getdosage.android.dosage;
 
+import android.widget.TextView;
+
 import java.util.Date;
 import java.util.UUID;
 
@@ -12,6 +14,7 @@ public class Dose {
     private UUID mId;
     private Date mTime;
     private String mLocation;
+    private String mTitle;
 
     public Dose() {
         mId = UUID.randomUUID();
@@ -35,5 +38,13 @@ public class Dose {
 
     public void setLocation(String location) {
         mLocation = location;
+    }
+
+    public String getTitle() {
+        return mTitle;
+    }
+
+    public void setTitle(String title) {
+        mTitle = title;
     }
 }
