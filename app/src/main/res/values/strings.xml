@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Dosage</string>
     <string name="title_hint">Hit me with your car (or...?)</string>
+    <string name="under_construction">Sorry, this is still being built.</string>
 </resources>
