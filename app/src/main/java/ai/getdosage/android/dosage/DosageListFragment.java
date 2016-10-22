@@ -56,14 +56,14 @@ public class DosageListFragment extends Fragment {
     private class DoseHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        public TextView mTitleTextView;
+        private TextView mTitleTextView;
         private Dose mDose;
 
         public DoseHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
 
-            mTitleTextView = (TextView) itemView;
+            mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_dose_title_text_view);
         }
 
         public void bindDose(Dose dose) {
@@ -88,7 +88,7 @@ public class DosageListFragment extends Fragment {
         @Override
         public DoseHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            View v = layoutInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+            View v = layoutInflater.inflate(R.layout.list_item_dose, parent, false);
             return new DoseHolder(v);
         }
 
