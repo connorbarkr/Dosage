@@ -29,7 +29,7 @@ public class DoseDealer {
         for (int i = 0; i < 20; i++) {
             Dose dose = new Dose();
             dose.setLocation("Home");
-            dose.setTitle("Hit me with your car #" + i);
+            dose.setTitle("Available dose");
             dose.setTime(new Date());
             mDoses.add(dose);
         }

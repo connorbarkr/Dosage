@@ -10,6 +10,7 @@
         android:id="@+id/dose_item"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        card_view:cardBackgroundColor="@color/calendarDose"
         card_view:cardCornerRadius="5dp"
         card_view:contentPadding="16dp"
         card_view:cardElevation="2dp"
