@@ -31,6 +31,7 @@ public class DoseDealer {
             dose.setLocation("Home");
             dose.setTitle("Available dose");
             dose.setTime(new Date());
+            dose.setDuration("60");
             mDoses.add(dose);
         }
     }

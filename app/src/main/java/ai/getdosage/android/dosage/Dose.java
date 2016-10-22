@@ -15,6 +15,7 @@ public class Dose {
     private Date mTime;
     private String mLocation;
     private String mTitle;
+    private String mDuration;
 
     public Dose() {
         mId = UUID.randomUUID();
@@ -46,5 +47,13 @@ public class Dose {
 
     public void setTitle(String title) {
         mTitle = title;
+    }
+
+    public String getDuration() {
+        return mDuration;
+    }
+
+    public void setDuration(String duration) {
+        mDuration = duration;
     }
 }
