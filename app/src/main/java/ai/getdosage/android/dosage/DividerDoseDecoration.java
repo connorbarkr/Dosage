@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
 
 /**
  * Created by Eskimopies on 24/10/2016.
@@ -89,5 +88,4 @@ public class DividerDoseDecoration extends RecyclerView.ItemDecoration {
             outRect.set(0, 0, mDivider.getIntrinsicWidth(), 0);
         }
     }
-
 }
