@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#D84315</color>
-    <color name="colorPrimaryDark">#BF360C</color>
-    <color name="colorAccent">#D500F9</color>
-    <color name="calendarDose">#FF5722</color>
+    <color name="colorPrimary">#424242</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="calendarDose">#E4AB5A</color>
     <color name="colorBackground">#424242</color>
     <color name="pureWhite">#FFFFFF</color>
 </resources>
