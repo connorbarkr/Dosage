@@ -1,8 +1,13 @@
 package ai.getdosage.android.dosage;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -38,6 +43,7 @@ public class DosageListFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_dosage_list, container, false);
 
         mDoseRecyclerView = (RecyclerView) v.findViewById(R.id.dose_recycler_view);
+        mDoseRecyclerView.addItemDecoration(new DividerDoseDecoration(getActivity(), DividerDoseDecoration.VERTICAL_LIST));
         mDoseRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         updateUI();
@@ -110,5 +116,4 @@ public class DosageListFragment extends Fragment {
             return mDoses.size();
         }
     }
-
 }
