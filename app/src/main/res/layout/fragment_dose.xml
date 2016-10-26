@@ -9,20 +9,24 @@
         android:id="@+id/dose_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/title_hint"/>
+        android:hint="@string/title_hint"
+        android:textColorHint="@color/pureWhite"
+        android:textColor="@color/pureWhite"/>
 
     <TextView
         android:id="@+id/dose_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="Location text here"/>
+        android:text="Location text here"
+        android:textColor="@color/pureWhite"/>
 
     <TextView
-        android:id="@+id/dose_date"
+        android:id="@+id/dose_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="Date text here"/>
+        android:text="Duration text here"
+        android:textColor="@color/pureWhite"/>
 
 </LinearLayout>

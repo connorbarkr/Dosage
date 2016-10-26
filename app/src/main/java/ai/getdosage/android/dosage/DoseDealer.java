@@ -29,7 +29,7 @@ public class DoseDealer {
         for (int i = 0; i < 20; i++) {
             Dose dose = new Dose();
             dose.setLocation("Home");
-            dose.setTitle("Available dose");
+            dose.setTitle("Available dose " + i);
             dose.setTime(new Date());
             dose.setDuration("60");
             mDoses.add(dose);
@@ -42,7 +42,7 @@ public class DoseDealer {
 
     public Dose getDose(UUID id) {
         for (Dose dose : mDoses) {
-            if (dose.getId() == id) {
+            if (dose.getId().equals(id)) {
                 return dose;
             }
         }

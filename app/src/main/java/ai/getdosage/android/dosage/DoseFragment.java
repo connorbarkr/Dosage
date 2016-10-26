@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.UUID;
 
 /**
  * Created by Eskimopies on 19/10/2016.
@@ -16,8 +19,10 @@ import android.widget.ImageView;
 
 public class DoseFragment extends android.support.v4.app.Fragment {
 
-    //private Dose mDose;
-    private ImageView mImageView;
+    private Dose mDose;
+    private EditText mEditText;
+    private TextView mLocation;
+    private TextView mDuration;
 
     public static DoseFragment newInstance() {
         return new DoseFragment();
@@ -26,17 +31,38 @@ public class DoseFragment extends android.support.v4.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //mDose = new Dose();
+        UUID doseId = (UUID) getActivity().getIntent().getSerializableExtra(DoseActivity.EXTRA_DOSE_ID);
+        mDose = DoseDealer.get(getActivity()).getDose(doseId);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.under_construction_placeholder, container, false);
+        View v = inflater.inflate(R.layout.fragment_dose, container, false);
 
-        Drawable placeHolder = getResources().getDrawable(R.drawable.ic_code_white_36dp);
+        mLocation = (TextView) v.findViewById(R.id.dose_location);
+        mLocation.setText(mDose.getLocation());
 
-        mImageView = (ImageView) v.findViewById(R.id.code_image);
-        mImageView.setImageDrawable(placeHolder);
+        mDuration = (TextView) v.findViewById(R.id.dose_duration);
+        mDuration.setText(mDose.getDuration() + " minutes");
+
+        mEditText = (EditText) v.findViewById(R.id.dose_title);
+        mEditText.setText(mDose.getTitle());
+        mEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // intentional blank
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                mDose.setTitle(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // intentional blank
+            }
+        });
 
         return v;
     }

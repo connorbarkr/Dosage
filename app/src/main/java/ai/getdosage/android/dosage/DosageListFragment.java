@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -78,7 +79,8 @@ public class DosageListFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(getActivity(), DoseActivity.class);
+            Dose dose = mDose;
+            Intent intent = DoseActivity.newIntent(getActivity(), dose.getId());
             startActivity(intent);
         }
     }
