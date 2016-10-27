@@ -21,6 +21,10 @@ public class Dose {
         mId = UUID.randomUUID();
     }
 
+    public Dose(UUID id) {
+        mId = id;
+    }
+
     public UUID getId() {
         return mId;
     }

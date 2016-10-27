@@ -48,8 +48,13 @@ public class DosageListFragment extends Fragment {
         DoseDealer doseDealer = DoseDealer.get(getActivity());
         List<Dose> doses = doseDealer.getDoses();
 
-        mAdapter = new DoseAdapter(doses);
-        mDoseRecyclerView.setAdapter(mAdapter);
+        if (mAdapter == null) {
+            mAdapter = new DoseAdapter(doses);
+            mDoseRecyclerView.setAdapter(mAdapter);
+        } else {
+            mAdapter.setDoses(doses);
+            mAdapter.notifyDataSetChanged();
+        }
     }
 
     private class DoseHolder extends RecyclerView.ViewHolder
@@ -108,6 +113,10 @@ public class DosageListFragment extends Fragment {
         @Override
         public int getItemCount() {
             return mDoses.size();
+        }
+
+        public void setDoses(List<Dose> doses) {
+            mDoses = doses;
         }
     }
 }
