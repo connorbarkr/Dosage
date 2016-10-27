@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public class DoseActivity extends SingleFragmentActivity {
 
-    public static final String EXTRA_DOSE_ID = "ai.getdosage.android.dosage.dose_id";
+    private static final String EXTRA_DOSE_ID = "ai.getdosage.android.dosage.dose_id";
 
     public static Intent newIntent(Context packageContext, UUID doseID) {
         Intent intent = new Intent(packageContext, DoseActivity.class);
@@ -20,8 +20,10 @@ public class DoseActivity extends SingleFragmentActivity {
         return intent;
     }
 
-    public Fragment createFragment() {
-        return new DoseFragment().newInstance();
+    @Override
+    protected Fragment createFragment() {
+        UUID doseId = (UUID) getIntent().getSerializableExtra(EXTRA_DOSE_ID);
+        return new DoseFragment().newInstance(doseId);
     }
 
 }

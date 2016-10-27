@@ -17,10 +17,21 @@ import java.util.UUID;
 
 public class DoseFragment extends android.support.v4.app.Fragment {
 
+    private static final String ARG_DOSE_ID = "dose_id";
+
     private Dose mDose;
     private EditText mEditText;
     private TextView mLocation;
     private TextView mDuration;
+
+    public static DoseFragment newInstance(UUID doseId) {
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_DOSE_ID, doseId);
+
+        DoseFragment fragment = new DoseFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     public static DoseFragment newInstance() {
         return new DoseFragment();
@@ -29,7 +40,7 @@ public class DoseFragment extends android.support.v4.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UUID doseId = (UUID) getActivity().getIntent().getSerializableExtra(DoseActivity.EXTRA_DOSE_ID);
+        UUID doseId = (UUID) getArguments().getSerializable(ARG_DOSE_ID);
         mDose = DoseDealer.get(getActivity()).getDose(doseId);
     }
 
