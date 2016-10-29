@@ -42,6 +42,12 @@ public class DoseDealer {
         mDatabase.insert(DoseTable.NAME, null, values);
     }
 
+    public void deleteDose(Dose d) {
+        String whereClause = DoseTable.Cols.UUID + " = ?";
+        String[] whereArgs = { d.getId().toString() };
+        mDatabase.delete(DoseTable.NAME, whereClause, whereArgs);
+    }
+
     public List<Dose> getDoses() {
         List<Dose> doses = new ArrayList<>();
 

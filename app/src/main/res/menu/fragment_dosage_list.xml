@@ -5,6 +5,6 @@
     <item
         android:id="@+id/menu_item_new_dose"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="New dose"/>
+        android:title="@string/create"/>
 
 </menu>

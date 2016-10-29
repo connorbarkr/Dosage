@@ -4,12 +4,17 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.UUID;
+
+import static android.support.v7.appcompat.R.styleable.MenuItem;
 
 /**
  * Created by Eskimopies on 19/10/2016.
@@ -42,6 +47,7 @@ public class DoseFragment extends android.support.v4.app.Fragment {
         super.onCreate(savedInstanceState);
         UUID doseId = (UUID) getArguments().getSerializable(ARG_DOSE_ID);
         mDose = DoseDealer.get(getActivity()).getDose(doseId);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -74,6 +80,24 @@ public class DoseFragment extends android.support.v4.app.Fragment {
         });
 
         return v;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_dose, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_item_delete:
+                DoseDealer.get(getActivity()).deleteDose(mDose);
+                getActivity().finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
