@@ -6,4 +6,6 @@
     <string name="create">New Dose</string>
     <string name="no_recyclables_text">There doesn\'t seem to be anything here!
         Tap on the button below, or the floating action button, to create a new Dose.</string>
+    <string name="priority_1">Priority 1</string>
+    <string name="date_placeholder">Date here</string>
 </resources>

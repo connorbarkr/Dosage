@@ -3,6 +3,7 @@ package ai.getdosage.android.dosage;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 
+import java.util.Date;
 import java.util.UUID;
 
 import ai.getdosage.android.dosage.DoseDbSchema.DoseTable;
@@ -21,12 +22,14 @@ public class DoseCursorWrapper extends CursorWrapper {
         String uuidString = getString(getColumnIndex(DoseTable.Cols.UUID));
         String title = getString(getColumnIndex(DoseTable.Cols.TITLE));
         String duration = getString(getColumnIndex(DoseTable.Cols.DURATION));
-        String location = getString(getColumnIndex(DoseTable.Cols.LOCATION));
+        String priority = getString(getColumnIndex(DoseTable.Cols.PRIORITY));
+        long date = getLong(getColumnIndex(DoseTable.Cols.DATE));
 
         Dose dose = new Dose(UUID.fromString(uuidString));
         dose.setTitle(title);
         dose.setDuration(duration);
-        dose.setLocation(location);
+        dose.setPriority(priority);
+        dose.setDueDate(new Date(date));
 
         return dose;
     }

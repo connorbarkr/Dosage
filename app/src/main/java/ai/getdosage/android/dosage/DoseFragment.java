@@ -26,7 +26,7 @@ public class DoseFragment extends android.support.v4.app.Fragment {
 
     private Dose mDose;
     private EditText mEditText;
-    private TextView mLocation;
+    private TextView mPriority;
     private TextView mDuration;
 
     public static DoseFragment newInstance(UUID doseId) {
@@ -54,11 +54,15 @@ public class DoseFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_dose, container, false);
 
-        mLocation = (TextView) v.findViewById(R.id.dose_location);
-        mLocation.setText(mDose.getLocation());
+        mPriority = (TextView) v.findViewById(R.id.dose_priority);
+        //mPriority.setText(mDose.getPriority());
 
         mDuration = (TextView) v.findViewById(R.id.dose_duration);
-        mDuration.setText(mDose.getDuration() + " minutes");
+        if (mDose.getDuration() == null) {
+            mDuration.setText("There is no duration for this event.");
+        } else {
+            mDuration.setText(mDose.getDuration() + " minutes");
+        }
 
         mEditText = (EditText) v.findViewById(R.id.dose_title);
         mEditText.setText(mDose.getTitle());

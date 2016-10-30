@@ -12,13 +12,14 @@ import java.util.UUID;
 public class Dose {
 
     private UUID mId;
-    private Date mTime;
-    private String mLocation;
+    private Date mDueDate;
+    private String mPriority;
     private String mTitle;
     private String mDuration;
 
     public Dose() {
         mId = UUID.randomUUID();
+        mDueDate = new Date();
     }
 
     public Dose(UUID id) {
@@ -29,20 +30,12 @@ public class Dose {
         return mId;
     }
 
-    public Date getTime() {
-        return mTime;
+    public Date getDueDate() {
+        return mDueDate;
     }
 
-    public void setTime(Date time) {
-        mTime = time;
-    }
-
-    public String getLocation() {
-        return mLocation;
-    }
-
-    public void setLocation(String location) {
-        mLocation = location;
+    public void setDueDate(Date dueDate) {
+        mDueDate = dueDate;
     }
 
     public String getTitle() {
@@ -59,5 +52,13 @@ public class Dose {
 
     public void setDuration(String duration) {
         mDuration = duration;
+    }
+
+    public String getPriority() {
+        return mPriority;
+    }
+
+    public void setPriority(String priority) {
+        mPriority = priority;
     }
 }

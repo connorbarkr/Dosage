@@ -27,7 +27,8 @@ public class DoseBaseHelper extends SQLiteOpenHelper {
         DoseTable.Cols.UUID + ", " +
         DoseTable.Cols.TITLE + ", " +
         DoseTable.Cols.DURATION + ", " +
-        DoseTable.Cols.LOCATION + ")");
+        DoseTable.Cols.PRIORITY + ", " +
+        DoseTable.Cols.DATE + ")");
     }
 
     @Override

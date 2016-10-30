@@ -98,7 +98,8 @@ public class DoseDealer {
         values.put(DoseTable.Cols.UUID, dose.getId().toString());
         values.put(DoseTable.Cols.TITLE, dose.getTitle());
         values.put(DoseTable.Cols.DURATION, dose.getDuration());
-        values.put(DoseTable.Cols.LOCATION, dose.getLocation());
+        values.put(DoseTable.Cols.PRIORITY, dose.getPriority());
+        values.put(DoseTable.Cols.DATE, dose.getDueDate().getTime());
 
         return values;
     }

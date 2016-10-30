@@ -13,7 +13,8 @@ public class DoseDbSchema {
             public static final String UUID = "uuid";
             public static final String TITLE = "title";
             public static final String DURATION = "duration";
-            public static final String LOCATION = "location";
+            public static final String DATE = "date";
+            public static final String PRIORITY = "priority";
         }
 
     }

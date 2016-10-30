@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -139,7 +141,7 @@ public class DosageListFragment extends Fragment {
         public void bindDose(Dose dose) {
             mDose = dose;
             mTitleTextView.setText(mDose.getTitle());
-            mLocationTextView.setText(mDose.getLocation());
+            mDateTextView.setText(SimpleDateFormat.getDateInstance(DateFormat.LONG).format(mDose.getDueDate()));
             mDurationTextView.setText(mDose.getDuration());
         }
 

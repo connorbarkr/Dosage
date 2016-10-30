@@ -14,11 +14,11 @@
         android:textColor="@color/pureWhite"/>
 
     <TextView
-        android:id="@+id/dose_location"
+        android:id="@+id/dose_due_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="Location text here"
+        android:text="@string/date_placeholder"
         android:textColor="@color/pureWhite"/>
 
     <TextView
@@ -27,6 +27,14 @@
         android:layout_height="wrap_content"
         android:padding="24dp"
         android:text="Duration text here"
+        android:textColor="@color/pureWhite"/>
+
+    <TextView
+        android:id="@+id/dose_priority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:text="@string/priority_1"
         android:textColor="@color/pureWhite"/>
 
 </LinearLayout>
