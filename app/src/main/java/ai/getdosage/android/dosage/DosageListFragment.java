@@ -124,7 +124,7 @@ public class DosageListFragment extends Fragment {
             implements View.OnClickListener {
 
         private TextView mTitleTextView;
-        private TextView mLocationTextView;
+        private TextView mPriorityTextView;
         private TextView mDurationTextView;
         private TextView mDateTextView;
         private Dose mDose;
@@ -134,15 +134,16 @@ public class DosageListFragment extends Fragment {
             itemView.setOnClickListener(this);
 
             mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_dose_title_text_view);
-            mLocationTextView = (TextView) itemView.findViewById(R.id.list_item_dose_location_text_view);
+            mPriorityTextView = (TextView) itemView.findViewById(R.id.list_item_dose_priority_text_view);
             mDurationTextView = (TextView) itemView.findViewById(R.id.list_item_dose_duration_text_view);
+            mDateTextView = (TextView) itemView.findViewById(R.id.list_item_dose_date_text_view);
         }
 
         public void bindDose(Dose dose) {
             mDose = dose;
             mTitleTextView.setText(mDose.getTitle());
             mDateTextView.setText(SimpleDateFormat.getDateInstance(DateFormat.LONG).format(mDose.getDueDate()));
-            mDurationTextView.setText(mDose.getDuration());
+            mDurationTextView.setText("None");
         }
 
         @Override
