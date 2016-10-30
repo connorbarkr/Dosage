@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,8 @@ public class DosageListFragment extends Fragment {
 
     private RecyclerView mDoseRecyclerView;
     private DoseAdapter mAdapter;
+    private TextView mEmptyView;
+    private Button mEmptyButton;
 
     public static DosageListFragment newInstance() {
         return new DosageListFragment();
@@ -43,7 +46,22 @@ public class DosageListFragment extends Fragment {
         mDoseRecyclerView.addItemDecoration(new DividerDoseDecoration(getActivity(), DividerDoseDecoration.VERTICAL_LIST));
         mDoseRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        mEmptyView = (TextView) v.findViewById(R.id.empty_view);
+
+        mEmptyButton = (Button) v.findViewById(R.id.empty_view_button);
+        mEmptyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dose dose = new Dose();
+                DoseDealer.get(getActivity()).addDose(dose);
+                Intent intent = DoseActivity.newIntent(getActivity(), dose.getId());
+                startActivity(intent);
+            }
+        });
+
         updateUI();
+
+        checkListStatus();
 
         return v;
     }
@@ -52,6 +70,7 @@ public class DosageListFragment extends Fragment {
     public void onResume() {
         super.onResume();
         updateUI();
+        checkListStatus();
     }
 
     @Override
@@ -84,6 +103,18 @@ public class DosageListFragment extends Fragment {
         } else {
             mAdapter.setDoses(doses);
             mAdapter.notifyDataSetChanged();
+        }
+    }
+
+    private void checkListStatus() {
+        if (DoseDealer.get(getActivity()).getDoses().isEmpty()) {
+            mEmptyView.setVisibility(View.VISIBLE);
+            mEmptyButton.setVisibility(View.VISIBLE);
+            mDoseRecyclerView.setVisibility(View.GONE);
+        } else {
+            mEmptyView.setVisibility(View.GONE);
+            mEmptyButton.setVisibility(View.GONE);
+            mDoseRecyclerView.setVisibility(View.VISIBLE);
         }
     }
 

@@ -4,4 +4,6 @@
     <string name="under_construction">Sorry, this is still being built.</string>
     <string name="delete">Delete</string>
     <string name="create">New Dose</string>
+    <string name="no_recyclables_text">There doesn\'t seem to be anything here!
+        Tap on the button below, or the floating action button, to create a new Dose.</string>
 </resources>
