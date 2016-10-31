@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.support.design.widget.FloatingActionButton;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -29,6 +29,7 @@ public class DosageListFragment extends Fragment {
     private DoseAdapter mAdapter;
     private TextView mEmptyView;
     private Button mEmptyButton;
+    private FloatingActionButton mAddDoseFab;
 
     public static DosageListFragment newInstance() {
         return new DosageListFragment();
@@ -52,6 +53,17 @@ public class DosageListFragment extends Fragment {
 
         mEmptyButton = (Button) v.findViewById(R.id.empty_view_button);
         mEmptyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dose dose = new Dose();
+                DoseDealer.get(getActivity()).addDose(dose);
+                Intent intent = DoseActivity.newIntent(getActivity(), dose.getId());
+                startActivity(intent);
+            }
+        });
+
+        mAddDoseFab = (FloatingActionButton) v.findViewById(R.id.add_dose_fab);
+        mAddDoseFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Dose dose = new Dose();
