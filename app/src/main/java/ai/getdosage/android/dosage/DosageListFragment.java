@@ -55,7 +55,7 @@ public class DosageListFragment extends Fragment {
             public void onClick(View view) {
                 Dose dose = new Dose();
                 DoseDealer.get(getActivity()).addDose(dose);
-                Intent intent = DosePagerActivity.newIntent(getActivity(), dose.getId());
+                Intent intent = DoseActivity.newIntent(getActivity(), dose.getId());
                 startActivity(intent);
             }
         });
@@ -86,7 +86,7 @@ public class DosageListFragment extends Fragment {
             case R.id.menu_item_new_dose:
                 Dose dose = new Dose();
                 DoseDealer.get(getActivity()).addDose(dose);
-                Intent intent = DosePagerActivity.newIntent(getActivity(), dose.getId());
+                Intent intent = DoseActivity.newIntent(getActivity(), dose.getId());
                 startActivity(intent);
                 return true;
             default:
@@ -146,7 +146,7 @@ public class DosageListFragment extends Fragment {
         @Override
         public void onClick(View view) {
             Dose dose = mDose;
-            Intent intent = DosePagerActivity.newIntent(getActivity(), dose.getId());
+            Intent intent = DoseActivity.newIntent(getActivity(), dose.getId());
             startActivity(intent);
         }
     }
