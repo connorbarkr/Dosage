@@ -28,7 +28,6 @@ public class DosageListFragment extends Fragment {
     private RecyclerView mDoseRecyclerView;
     private DoseAdapter mAdapter;
     private TextView mEmptyView;
-    private Button mEmptyButton;
     private FloatingActionButton mAddDoseFab;
 
     public static DosageListFragment newInstance() {
@@ -50,17 +49,6 @@ public class DosageListFragment extends Fragment {
         mDoseRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         mEmptyView = (TextView) v.findViewById(R.id.empty_view);
-
-        mEmptyButton = (Button) v.findViewById(R.id.empty_view_button);
-        mEmptyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Dose dose = new Dose();
-                DoseDealer.get(getActivity()).addDose(dose);
-                Intent intent = DoseActivity.newIntent(getActivity(), dose.getId());
-                startActivity(intent);
-            }
-        });
 
         mAddDoseFab = (FloatingActionButton) v.findViewById(R.id.add_dose_fab);
         mAddDoseFab.setOnClickListener(new View.OnClickListener() {
@@ -123,11 +111,9 @@ public class DosageListFragment extends Fragment {
     private void checkListStatus() {
         if (DoseDealer.get(getActivity()).getDoses().isEmpty()) {
             mEmptyView.setVisibility(View.VISIBLE);
-            mEmptyButton.setVisibility(View.VISIBLE);
             mDoseRecyclerView.setVisibility(View.GONE);
         } else {
             mEmptyView.setVisibility(View.GONE);
-            mEmptyButton.setVisibility(View.GONE);
             mDoseRecyclerView.setVisibility(View.VISIBLE);
         }
     }
