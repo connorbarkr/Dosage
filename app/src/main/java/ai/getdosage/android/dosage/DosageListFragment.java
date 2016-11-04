@@ -11,7 +11,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
 
@@ -56,7 +55,7 @@ public class DosageListFragment extends Fragment {
             public void onClick(View view) {
                 Dose dose = new Dose();
                 DoseDealer.get(getActivity()).addDose(dose);
-                Intent intent = DoseActivity.newIntent(getActivity(), dose.getId());
+                Intent intent = DosePagerActivity.newIntent(getActivity(), dose.getId());
                 startActivity(intent);
             }
         });
@@ -87,7 +86,7 @@ public class DosageListFragment extends Fragment {
             case R.id.menu_item_new_dose:
                 Dose dose = new Dose();
                 DoseDealer.get(getActivity()).addDose(dose);
-                Intent intent = DoseActivity.newIntent(getActivity(), dose.getId());
+                Intent intent = DosePagerActivity.newIntent(getActivity(), dose.getId());
                 startActivity(intent);
                 return true;
             default:
@@ -147,7 +146,7 @@ public class DosageListFragment extends Fragment {
         @Override
         public void onClick(View view) {
             Dose dose = mDose;
-            Intent intent = DoseActivity.newIntent(getActivity(), dose.getId());
+            Intent intent = DosePagerActivity.newIntent(getActivity(), dose.getId());
             startActivity(intent);
         }
     }
